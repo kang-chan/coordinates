@@ -67,7 +67,7 @@
 <p id="result"></p>
 
 
-<script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=7f51314eda8f6720d53ba1c2c8b944c0&libraries=services"></script>
+<script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=2634b7b6dd61e41a4d6c0bf40a2ef820&libraries=services"></script>
 <script>
 // 마커를 클릭하면 장소명을 표출할 인포윈도우 입니다
 var infowindow = new kakao.maps.InfoWindow({zIndex:1});

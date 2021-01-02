@@ -76,7 +76,7 @@ kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
     // 클릭한 위도, 경도 정보를 가져옵니다 
     var latlng = mouseEvent.latLng;
     
-    var message = '클릭한 위치의 좌표 (경도,위도) : ' + latlng.getLat() + ', ' + latlng.getLng();
+    var message = '클릭한 위치의 좌표 (위도,경도) : ' + latlng.getLat() + ', ' + latlng.getLng();
     
     var resultDiv = document.getElementById('result'); 
     resultDiv.innerHTML = message;

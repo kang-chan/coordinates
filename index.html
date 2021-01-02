@@ -5,16 +5,7 @@
 <head>
     <meta charset="utf-8">
     <title>클릭하여 좌표구하기</title>
-       <style>
-#container {overflow:hidden;height:300px;position:relative;}
-#mapWrapper {width:100%;height:300px;z-index:1;}
-#rvWrapper {width:50%;height:300px;top:0;right:0;position:absolute;z-index:0;}
-#container.view_roadview #mapWrapper {width: 50%;}
-#roadviewControl {position:absolute;top:5px;left:5px;width:42px;height:42px;z-index: 1;cursor: pointer; background: url(https://t1.daumcdn.net/localimg/localimages/07/2018/pc/common/img_search.png) 0 -450px no-repeat;}
-#roadviewControl.active {background-position:0 -350px;}
-#close {position: absolute;padding: 4px;top: 5px;left: 5px;cursor: pointer;background: #fff;border-radius: 4px;border: 1px solid #c8c8c8;box-shadow: 0px 1px #888;}
-#close .img {display: block;background: url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/rv_close.png) no-repeat;width: 14px;height: 14px;}
-</style> 
+
 </head>
 <body>
 
@@ -49,22 +40,6 @@
 <script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=2634b7b6dd61e41a4d6c0bf40a2ef820&libraries=services"></script>
 <script>
 
-    <div id="container">
-    <div id="rvWrapper">
-        <div id="roadview" style="width:100%;height:100%;"></div> <!-- 로드뷰를 표시할 div 입니다 -->
-        <div id="close" title="로드뷰닫기" onclick="closeRoadview()"><span class="img"></span></div>
-    </div>
-    <div id="mapWrapper">
-        <div id="map" style="width:100%;height:100%"></div> <!-- 지도를 표시할 div 입니다 -->
-        <div id="roadviewControl" onclick="setRoadviewRoad()"></div>
-    </div>
-</div>
-
-var overlayOn = false, // 지도 위에 로드뷰 오버레이가 추가된 상태를 가지고 있을 변수
-    container = document.getElementById('container'), // 지도와 로드뷰를 감싸고 있는 div 입니다
-    mapWrapper = document.getElementById('mapWrapper'), // 지도를 감싸고 있는 div 입니다
-    mapContainer = document.getElementById('map'), // 지도를 표시할 div 입니다 
-    rvContainer = document.getElementById('roadview'); //로드뷰를 표시할 div 입니다
 
     
     
@@ -94,28 +69,7 @@ map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
 var zoomControl = new kakao.maps.ZoomControl();
 map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
 
-    // 로드뷰 객체를 생성합니다 
-var rv = new kakao.maps.Roadview(rvContainer); 
-
-// 좌표로부터 로드뷰 파노라마 ID를 가져올 로드뷰 클라이언트 객체를 생성합니다 
-var rvClient = new kakao.maps.RoadviewClient(); 
-
-// 로드뷰에 좌표가 바뀌었을 때 발생하는 이벤트를 등록합니다 
-kakao.maps.event.addListener(rv, 'position_changed', function() {
-
-    // 현재 로드뷰의 위치 좌표를 얻어옵니다 
-    var rvPosition = rv.getPosition();
-
-    // 지도의 중심을 현재 로드뷰의 위치로 설정합니다
-    map.setCenter(rvPosition);
-
-    // 지도 위에 로드뷰 도로 오버레이가 추가된 상태이면
-    if(overlayOn) {
-        // 마커의 위치를 현재 로드뷰의 위치로 설정합니다
-        marker.setPosition(rvPosition);
-    }
-});
-
+ 
 // 마커 이미지를 생성합니다
 var markImage = new kakao.maps.MarkerImage(
     'https://t1.daumcdn.net/localimg/localimages/07/2018/pc/roadview_minimap_wk_2018.png',

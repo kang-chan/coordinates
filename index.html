@@ -44,7 +44,7 @@ var infowindow = new kakao.maps.InfoWindow({zIndex:1});
 
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
     mapOption = {
-        center: new kakao.maps.LatLng(35.274442224673194, 128.40763244006135), // 지도의 중심좌표
+        center: new kakao.maps.LatLng(35.28297126294672, 128.4135394389533), // 지도의 중심좌표
         level: 3 // 지도의 확대 레벨
         
     };  
@@ -142,7 +142,7 @@ function searchPlaces() {
     }
 
     // 장소검색 객체를 통해 키워드로 장소검색을 요청합니다
-    ps.keywordSearch( '함안군'+keyword, placesSearchCB); 
+    ps.keywordSearch( '함안군 '+keyword, placesSearchCB); 
 }
 
 

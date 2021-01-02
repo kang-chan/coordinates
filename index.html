@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
     <br><span
@@ -8,32 +9,13 @@
     color: navy;
     font-family: sans-serif;
     ">    
-    <키워드로 장소 검색하고, 클릭한 위치 좌표 얻기></span>
-    <span
-    style="
-    font-weight: bold; 
-    font-size: 1.1em;
-    line-height: 1.0em; 
-    color: brown;
-    font-family: sans-serif;
-    ">    
-    <a href="https://tableblog.tistory.com/117" target="_blank">
-            이용 방법 (자세히)
-      </a></span>
-      <span
-    style="
-    font-size: 1em;
-    line-height: 1.0em; 
-    color: black;
-    font-family: sans-serif;
-    ">    
-     : 장소 입력 - 검색하기 - 위치 클릭 - 좌표 확인
-      <br><br></span>
+    <좌표 검색></span>
+ 
 </html>
 <html>
 <head>
     <meta charset="utf-8">
-    <title>키워드로 장소 검색하고, 클릭하여 위치 좌표 정보 얻기</title>
+    <title>클릭하여 좌표 구하기</title>
     
 </head>
 <body>
@@ -167,12 +149,11 @@ function searchPlaces() {
     var keyword = document.getElementById('keyword').value;
 
     if (!keyword.replace(/^\s+|\s+$/g, '')) {
-        alert('장소를 입력해주세요!');
         return false;
     }
 
     // 장소검색 객체를 통해 키워드로 장소검색을 요청합니다
-    ps.keywordSearch( keyword, placesSearchCB); 
+    ps.keywordSearch( '함안군'+keyword, placesSearchCB); 
 }
 
 
